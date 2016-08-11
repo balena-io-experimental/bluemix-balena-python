@@ -1,0 +1,6 @@
+# IBM Bluemix connectivity
+ibmiotf
+
+# Required by data sources and actions for this project
+psutil
+requests

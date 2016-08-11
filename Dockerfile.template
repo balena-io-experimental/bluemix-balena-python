@@ -1,0 +1,20 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-python
+
+MAINTAINER Gergely Imreh <gergely@resin.io>
+
+# Set default working directory
+WORKDIR /usr/src/app
+
+ENV INITSYSTEM on
+
+# Cache requirements
+COPY requirements.txt ./
+
+# Install required packages
+RUN pip install -r requirements.txt
+
+# Copy files to the working directory
+COPY . ./
+
+# Start server
+CMD ["python", "monitor.py"]
