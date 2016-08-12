@@ -83,7 +83,7 @@ def action_blink_led():
 def command_callback(cmd):
     """Handle incoming commands from Bluemix
     """
-    print("Command received: %s" % cmd.data)
+    print("Command received: %s" % cmd)
     if cmd.command == "setOff":
         action_set_off()
     elif cmd.command == "setText":
