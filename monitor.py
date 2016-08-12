@@ -87,11 +87,10 @@ def command_callback(cmd):
     if cmd.command == "setOff":
         action_set_off()
     elif cmd.command == "setText":
-        print(type(cmd.data))
         if 'text' not in cmd.data:
             print("Error - command is missing required information: 'text'")
         else:
-            action_set_text(text)
+            action_set_text(cmd.data("text"))
     elif cmd.command == "blinkLed":
         action_blink_led()
 
