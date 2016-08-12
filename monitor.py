@@ -38,7 +38,7 @@ def reading_random(lower=0, upper=1):
 ###
 # Bluemix output
 ###
-def send_readings(connection):
+def send_readings(connection, debug=False):
     """Send readings to the Bluemix platform
     """
     readings = {
@@ -46,6 +46,8 @@ def send_readings(connection):
         "free_memory": reading_memory(),
         "random": reading_random()
     }
+    if debug:
+        print(readings)
     connection.publishEvent("status", "json", readings)
 
 ###
@@ -126,5 +128,6 @@ if __name__ == "__main__":
     i = 0
     while True:
         if i % READINGS_PERIOD == 0:
-            send_readings(client)
+            send_readings(client, debug=True)
+        i += 1
         time.sleep(1)
