@@ -1,0 +1,6 @@
+[application]
+org=<replace>
+id=DemoApp
+auth-method=apikey
+auth-key=<replace>
+auth-token=<replace>
