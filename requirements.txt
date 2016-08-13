@@ -1,5 +1,8 @@
 # IBM Bluemix connectivity
+# uncomment next line to use last published version
 ibmiotf
+# uncomment next line to use latest development version instead
+# -e git://github.com/ibm-watson-iot/iot-python.git#egg=ibmiotf
 
 # Required by data sources and actions for this project
 psutil
