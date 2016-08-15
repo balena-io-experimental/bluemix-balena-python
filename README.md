@@ -53,11 +53,11 @@ pip install -r requirements.txt
 Then run the application:
 
 * `python application.py` or `python application.py --help`: show help
-* `python application getdevices`: query registered devices
-* `python application monitor`: stream readings from connected devices
-* `python application settext`: send "setText" command to device
-* `python application setoff`: send "setOff" command to device (turn off)
-* `python application blinkled`: send "blinkLed" command to the device
+* `python application.py getdevices`: query registered devices
+* `python application.py monitor`: stream readings from connected devices
+* `python application.py settext`: send "setText" command to device
+* `python application.py setoff`: send "setOff" command to device (turn off)
+* `python application.py blinkled`: send "blinkLed" command to the device
 
 ## License
 
