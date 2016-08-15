@@ -90,7 +90,7 @@ def getdevices():
 @click.option('--devid', prompt='Device id', help='The deviceId to send the command to.')
 @click.option('--text', prompt='Text to send', help='Text to send to device/devices')
 def settext(devtype, devid, text):
-    """Send "setText" command device
+    """Send "setText" command to device
     """
     client = setupClient()
     client.connect()
@@ -108,7 +108,7 @@ def settext(devtype, devid, text):
 @click.option('--devtype', prompt='Device type', help='The deviceType to send the command to.')
 @click.option('--devid', prompt='Device id', help='The deviceId to send the command to.')
 def blinkLed(devtype, devid):
-    """Send "blinkLed" command device
+    """Send "blinkLed" command to device
     """
     client = setupClient()
     client.connect()
@@ -126,7 +126,7 @@ def blinkLed(devtype, devid):
 @click.option('--devtype', prompt='Device type', help='The deviceType to send the command to.')
 @click.option('--devid', prompt='Device id', help='The deviceId to send the command to.')
 def setoff(devtype, devid):
-    """Send "setOff" command device (turn off)
+    """Send "setOff" command to device (turn off)
     """
     click.confirm('Are you sure you want to turn the device off?', abort=True)
     client = setupClient()
