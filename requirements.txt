@@ -4,6 +4,12 @@ ibmiotf
 # uncomment next line to use latest development version instead
 # -e git://github.com/ibm-watson-iot/iot-python.git#egg=ibmiotf
 
+# Required for automatic registration
+# uncomment next line to use last published version
+resin-sdk
+# uncomment next line to use latest development version instead
+# -e git://github.com/resin-io/resin-sdk-python.git#egg=resin-sdk
+
 # Required by data sources and actions for this project
 psutil
 requests

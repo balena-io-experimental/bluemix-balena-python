@@ -98,17 +98,26 @@ def command_callback(cmd):
 # Start the monitoring service
 if __name__ == "__main__":
     import ibmiotf.device
+    import resin_bluemix
+
+    if os.getenv("BLUEMIX_AUTOREGISTER", '1') == '1':
+        # Register or get auth credentials for this device automatically
+        device_id, device_token = resin_bluemix.register(os.getenv("RESINIO_AUTH_TOKEN"))
+    else:
+        # Manually registered devices
+        device_id = os.getenv("BLUEMIX_DEVICE_ID")
+        device_token = os.getenv("BLUEMIX_DEVICE_TOKEN")
 
     # Authenticate
     try:
         options = {"org": os.getenv("BLUEMIX_ORG"),
                    "type": os.getenv("BLUEMIX_DEVICE_TYPE"),
-                   "id": os.getenv("BLUEMIX_DEVICE_ID"),
-                   "auth-method": os.getenv("BLUEMIX_AUTH_METHOD"),
-                   "auth-token": os.getenv("BLUEMIX_AUTH_TOKEN")
+                   "id": device_id,
+                   "auth-method": os.getenv("BLUEMIX_AUTH_METHOD", "token"),
+                   "auth-token": device_token
                   }
         client = ibmiotf.device.Client(options)
-    except ibmiotf.ConnectionException  as e:
+    except ibmiotf.ConnectionException:
         raise
 
     # Connect

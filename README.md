@@ -18,17 +18,42 @@ The commandss side of the application implements 3 commands:
 
 ## Device
 
+### Auto-registering onto Bluemix
+
+This demo includes code to use the resin.io the Bluemix APIs to auto-register devices onto Bluemix. For this need to create an a
+
+* `BLUEMIX_ORG`: get it from the Watson IoT console
+* `BLUEMIX_DEVICE_TYPE`: set it to the device type you created in the Watson IoT console
+* `BLUEMIX_API_KEY`: create a new api key in the Watson IoT console (Access / API Keys) set the key value here
+* `BLUEMIX_API_TOKEN`: the auth token part of the api access
+* `RESINIO_AUTH_TOKEN`: get it from the resin.io dashboard / preferences
+
+The registration process internally as follows:
+
+1. On the start of the application, the code gets the name of the current device from the resin.io API, as well as a number of other information (to demonstrate setting device info).
+2. It connects to the Bluemix API with the provided Bluemix API credentials, and creates a new devices with the given name and parameters.
+3. When the Bluemix API returns with the new device's token, the value is set as an environment variable through the resin.io API.
+
+After this, a new device should be available on the Bluemix Watson IoT console with the same name as the resin.io device.
+
+### Manual device registering
+
 After setting up your device on IBM Bluemix, and save your credentials ("organization", "device type", "device name", "authentication method", and "authentication token")) create a resin.io application, and define five application-wide environment variables to hold the credential values from for the devices.
 
 * `BLUEMIX_ORG`
 * `BLUEMIX_DEVICE_TYPE`
 * `BLUEMIX_DEVICE_ID`
 * `BLUEMIX_AUTH_METHOD`
-* `BLUEMIX_AUTH_TOKEN`
+* `BLUEMIX_DEVICE_TOKEN`
+* `BLUEMIX_AUTOREGISTER`
 
-Here `BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYPE`, and `BLUEMIX_AUTH_METHOD` will likely be the same for all devices within a resin.io application, so set them to the correct values. `BLUEMIX_DEVICE_ID` and `BLUEMIX_AUTH_TOKEN` will be different for all devices, so set them application-wide to `REDEFINE` or something similar to remind you to redefine them in the device-level environmental variables!
+Set `BLUEMIX_AUTOREGISTER` to `0` to disable auto-registering the device to Bluemix.
+
+`BLUEMIX_ORG`, `BLUEMIX_DEVICE_TYPE`, and `BLUEMIX_AUTH_METHOD` will likely be the same for all devices within a resin.io application, so set them to the correct values. `BLUEMIX_DEVICE_ID` and `BLUEMIX_DEVICE_TOKEN` will be different for all devices, so set them application-wide to `REDEFINE` or something similar to remind you to redefine them in the device-level environmental variables!
 
 Set up your device and connect to resin. Then in the device's dashboard, redefine the environment variables ( `BLUEMIX_DEVICE_ID` and `BLUEMIX_AUTH_TOKEN`). If you have multiple devices, repeat these steps for all.
+
+### Other setup
 
 For this application other optional variables.
 
