@@ -2,7 +2,7 @@
 
 Implementing a basic IBM Bluemix Watson IoT device on balena. It shows how to send data, and receive commands. Also includes an example application that can monitor the device's data and send the appropriate commands.
 
-For detailed explamation, and setting up IBM Bluemix with balena, see the [documentation](https://docs.balena.io/learn/develop/integrations/bluemix/)!
+For detailed explamation, and setting up IBM Bluemix with balena, see the [documentation](https://balena.io/docs/learn/develop/integrations/bluemix/)!
 
 The sensor side of the application implements 3 readings to create interesting data streams that can be used for testing:
 
