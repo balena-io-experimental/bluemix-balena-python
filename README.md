@@ -1,3 +1,5 @@
+**For balena's current cloud integration tools, see the [Provision with cloud IoT](https://www.balena.io/docs/learn/develop/cloud-iot-provisioning/) docs and [cloud-relay](https://github.com/balena-io-examples/cloud-relay) repo.**
+
 # IBM Bluemix Watson IoT device on balena
 
 Implementing a basic IBM Bluemix Watson IoT device on balena. It shows how to send data, and receive commands. Also includes an example application that can monitor the device's data and send the appropriate commands.
